@@ -202,6 +202,7 @@ export default class AudioPlayer extends Component {
 
     // add event listeners on the audio element
     audio.preload = 'none';
+    audio.loop = this.props.cycle;
     audio.addEventListener('play', this.audioPlayListener);
     audio.addEventListener('pause', this.audioPauseListener);
     audio.addEventListener('ended', this.audioEndListener);

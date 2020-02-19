@@ -1,13 +1,13 @@
 {
-  "name": "react-custom-audio-player",
-  "version": "1.3.1",
+  "name": "@mike_petrov/react-custom-audio-player",
+  "version": "1.0.0",
   "author": {
-    "name": "Balachander",
-    "url": "https://github.com/Bala-raj"
+    "name": "mike_petrov",
+    "url": "https://github.com/mike-petrov/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Bala-raj/react-custom-audio-player.git"
+    "url": "https://github.com/mike-petrov/react-custom-audio-player.git"
   },
   "bugs": {
     "url": "https://github.com/Bala-raj/react-custom-audio-player/issues"
@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.2",
