@@ -69,7 +69,7 @@ export function extractFileName(filename) {
  * Accepts 'src' prop of the form:
  *
  * "./path/to/file.mp3"
- * 
+ *
  * Accepts 'autoplay' prop (true/[false]).
  *
  * Accepts 'autoplayDelayInSeconds' prop (default 0).
@@ -134,7 +134,10 @@ export default class AudioPlayer extends Component {
     this.resizeListener = () => this.fetchAudioProgressBoundingRect();
     this.audioPlayListener = () => this.setState({ paused: false, reload: false });
     this.audioPauseListener = () => this.setState({ paused: true });
-    this.audioEndListener = () => this.setState({ reload: true });
+    this.audioEndListener = () => {
+        props.onEnded();
+        this.setState({ reload: true });
+    };
     this.audioStallListener = () => this.togglePause(true);
     this.audioTimeUpdateListener = () => this.handleTimeUpdate();
     this.audioMetadataLoadedListener = () => this.setState({
@@ -542,6 +545,7 @@ AudioPlayer.propTypes = {
   customDownloadButton: PropTypes.bool,
   children: PropTypes.any,
   type: PropTypes.oneOf(['audio/wav', 'audio/ogg', 'audio/mpeg', '']),
+  onEnded: PropTypes.func,
   filename: PropTypes.string,
   theme: PropTypes.oneOfType([
     PropTypes.string,
