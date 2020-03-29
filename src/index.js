@@ -135,7 +135,10 @@ export default class AudioPlayer extends Component {
     this.audioPlayListener = () => this.setState({ paused: false, reload: false });
     this.audioPauseListener = () => this.setState({ paused: true });
     this.audioEndListener = () => {
-        props.onEnded();
+        console.log(this.props);
+        if (this.props.onEnded) {
+            this.props.onEnded();
+        }
         this.setState({ reload: true });
     };
     this.audioStallListener = () => this.togglePause(true);
