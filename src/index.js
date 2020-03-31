@@ -116,7 +116,7 @@ export default class AudioPlayer extends Component {
       displayedTime: 0,
       playbackRate: '1x',
       showPlaybackRateList: false,
-      volumeRange: 50,
+      volumeRange: props.volumeRange,
     };
 
     this.state = Object.assign({}, this.defaultState);
@@ -544,6 +544,7 @@ AudioPlayer.propTypes = {
   showFullDuration: PropTypes.bool,
   showRemainingTime: PropTypes.bool,
   showVolumeSlider: PropTypes.bool,
+  volumeRange: PropTypes.number,
   customDownloadButton: PropTypes.bool,
   children: PropTypes.any,
   type: PropTypes.oneOf(['audio/wav', 'audio/ogg', 'audio/mpeg', '']),
@@ -569,6 +570,7 @@ AudioPlayer.defaultProps = {
   showFullDuration: false,
   showRemainingTime: false,
   showVolumeSlider: false,
+  volumeRange: 50,
   showPlaybackRate: false,
   customDownloadButton: false,
   type: '',

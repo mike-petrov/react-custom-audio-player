@@ -156,7 +156,7 @@ var AudioPlayer = function (_Component) {
       displayedTime: 0,
       playbackRate: '1x',
       showPlaybackRateList: false,
-      volumeRange: 50
+      volumeRange: props.volumeRange
     };
 
     _this.state = Object.assign({}, _this.defaultState);
@@ -770,6 +770,7 @@ AudioPlayer.propTypes = {
   showFullDuration: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
   showRemainingTime: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
   showVolumeSlider: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
+  volumeRange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
   customDownloadButton: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
   children: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.any,
   type: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOf(['audio/wav', 'audio/ogg', 'audio/mpeg', '']),
@@ -792,6 +793,7 @@ AudioPlayer.defaultProps = {
   showFullDuration: false,
   showRemainingTime: false,
   showVolumeSlider: false,
+  volumeRange: 50,
   showPlaybackRate: false,
   customDownloadButton: false,
   type: '',
