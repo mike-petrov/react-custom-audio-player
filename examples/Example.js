@@ -22,7 +22,6 @@ class Example extends React.Component {
     componentWillMount() {
         setInterval(() => {
             const volume = Math.floor(Math.random() * 100);
-            console.log('!', volume);
             this.setState({ volumeRange: volume });
         }, 3000);
     }
