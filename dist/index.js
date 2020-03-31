@@ -332,6 +332,12 @@ var AudioPlayer = function (_Component) {
     value: function componentWillReceiveProps(nextProps) {
       var _this3 = this;
 
+      if (nextProps.volumeRange !== this.state.volumeRange) {
+        this.setState({ volumeRange: Number(nextProps.volumeRange) }, function () {
+          _this3.updateVolume();
+        });
+      }
+
       // Update media event listeners that may have changed
       this.removeMediaEventListeners(this.props.onMediaEvent);
       this.addMediaEventListeners(nextProps.onMediaEvent);

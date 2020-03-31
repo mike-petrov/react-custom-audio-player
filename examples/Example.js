@@ -8,7 +8,8 @@ class Example extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showLoader: true
+            showLoader: true,
+            volumeRange: 50
         }
 
         this.onChange = this.onChange.bind(this);
@@ -16,6 +17,14 @@ class Example extends React.Component {
         this.onClickOfSong = this.onClickOfSong.bind(this);
         this.onClickOfTest = this.onClickOfTest.bind(this);
         this.onPlayCB = this.onPlayCB.bind(this);
+    }
+
+    componentWillMount() {
+        setInterval(() => {
+            const volume = Math.floor(Math.random() * 100);
+            console.log('!', volume);
+            this.setState({ volumeRange: volume });
+        }, 3000);
     }
 
     onChange(e) {
@@ -41,11 +50,11 @@ class Example extends React.Component {
     }
 
     render() {
-        const { url, input, showLoader } = this.state;
+        const { url, input, showLoader, volumeRange } = this.state;
         return (
             <center>
                 <div>
-                    <input ref={(c) => (this.input = c)} type="text" value={input} placeholder="URL to play" /> <button onClick={this.onLoad}> Load </button>
+                    <input ref={(c) => (this.input = c)} type="text" value={input} defaultValue="https://vk.com/mp3/audio_api_unavailable.mp3?extra=encodeextraurl" placeholder="URL to play" /> <button onClick={this.onLoad}> Load </button>
                     <hr />
                     <ul>
                         <li onClick={this.onClickOfSong} data-url="https://static1.squarespace.com/static/5547ab1ee4b0f235dbd475fc/5548268de4b0ec2ff50da4e9/59305add197aea69127bb033/1496341318490/10.+Kuthu+Fire+Mix+6.mp3">Kuthu Fire Mix</li>
@@ -56,7 +65,7 @@ class Example extends React.Component {
 
                 </div>
 
-                <MyComponent autoplay src={ url } customDownloadButton showSeekControls showPlaybackRate showLoader={showLoader} onMediaEvent={{ play: (e)=> {console.error(e)}}} showVolumeSlider showRemainingTime volumeRange={100} onEnded={()=>{console.log(1)}}> <ReactDownload/> </MyComponent>
+                <MyComponent autoplay src={ url } customDownloadButton showSeekControls showPlaybackRate showLoader={showLoader} onMediaEvent={{ play: (e)=> {console.error(e)}}} showVolumeSlider showRemainingTime volumeRange={volumeRange} onEnded={()=>{console.log(1)}}> <ReactDownload/> </MyComponent>
             </center>
         )
     }

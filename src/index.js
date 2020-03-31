@@ -262,6 +262,12 @@ export default class AudioPlayer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    if (nextProps.volumeRange !== this.state.volumeRange) {
+        this.setState({ volumeRange: Number(nextProps.volumeRange) }, () => {
+          this.updateVolume();
+        });
+    }
+
     // Update media event listeners that may have changed
     this.removeMediaEventListeners(this.props.onMediaEvent);
     this.addMediaEventListeners(nextProps.onMediaEvent);
