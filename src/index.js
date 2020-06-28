@@ -470,8 +470,8 @@ export default class AudioPlayer extends Component {
 
             <div id="play_pause_button" className={classNames('play_pause_button', 'audio_button', { paused: (!this.state.reload && this.state.paused), loading: this.state.loading, reload: this.state.reload })} onClick={() => this.togglePause()} >
               <div className="play_pause_inner">
-                <div className="ivrplaybtn"><PlayIcon /></div>
-                <div className="ivrpausebtn"><PauseIcon /></div>
+                <div className="ivrplaybtn">{this.props.customPlayIcon !== null ? this.props.customPlayIcon : <PlayIcon />}</div>
+                <div className="ivrpausebtn">{this.props.customPauseIcon !== null ? this.props.customPauseIcon : <PauseIcon />}</div>
                 <div className="spinner"><img src='https://storage.googleapis.com/branddesignmanager/CWANewDesign/images/spinners.gif' /></div>
                 <div className="reload-icon"><ReloadIcon /> </div>
               </div>
@@ -551,6 +551,8 @@ AudioPlayer.propTypes = {
   showRemainingTime: PropTypes.bool,
   showVolumeSlider: PropTypes.bool,
   volumeRange: PropTypes.number,
+  customPlayIcon: PropTypes.object,
+  customPauseIcon: PropTypes.object,
   customDownloadButton: PropTypes.bool,
   children: PropTypes.any,
   type: PropTypes.oneOf(['audio/wav', 'audio/ogg', 'audio/mpeg', '']),
@@ -577,6 +579,8 @@ AudioPlayer.defaultProps = {
   showRemainingTime: false,
   showVolumeSlider: false,
   volumeRange: 50,
+  customPlayIcon: null,
+  customPauseIcon: null,
   showPlaybackRate: false,
   customDownloadButton: false,
   type: '',

@@ -572,12 +572,12 @@ var AudioPlayer = function (_Component) {
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
                   { className: 'ivrplaybtn' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__icons__["a" /* PlayIcon */], null)
+                  this.props.customPlayIcon !== null ? this.props.customPlayIcon : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__icons__["a" /* PlayIcon */], null)
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
                   { className: 'ivrpausebtn' },
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__icons__["b" /* PauseIcon */], null)
+                  this.props.customPauseIcon !== null ? this.props.customPauseIcon : __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__icons__["b" /* PauseIcon */], null)
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   'div',
@@ -777,6 +777,8 @@ AudioPlayer.propTypes = {
   showRemainingTime: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
   showVolumeSlider: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
   volumeRange: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number,
+  customPlayIcon: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
+  customPauseIcon: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object,
   customDownloadButton: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool,
   children: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.any,
   type: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOf(['audio/wav', 'audio/ogg', 'audio/mpeg', '']),
@@ -800,6 +802,8 @@ AudioPlayer.defaultProps = {
   showRemainingTime: false,
   showVolumeSlider: false,
   volumeRange: 50,
+  customPlayIcon: null,
+  customPauseIcon: null,
   showPlaybackRate: false,
   customDownloadButton: false,
   type: '',
