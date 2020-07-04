@@ -211,7 +211,7 @@ export default class AudioPlayer extends Component {
     audio.addEventListener('play', this.audioPlayListener);
     audio.addEventListener('pause', this.audioPauseListener);
     audio.addEventListener('ended', this.audioEndListener);
-    audio.addEventListener('stalled', this.audioStallListener);
+    // audio.addEventListener('stalled', this.audioStallListener);
     audio.addEventListener('timeupdate', this.audioTimeUpdateListener);
     audio.addEventListener('loadedmetadata', this.audioMetadataLoadedListener);
     audio.addEventListener('loadeddata', this.onBuffered);
